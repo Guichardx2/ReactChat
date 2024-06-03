@@ -1,15 +1,20 @@
 import "../styles/Chat.css";
 import { useState } from "react";
-export default function Chat() {
-  const [message, setMessage] = useState([]);
-  const [btnSend, setBtnSend] = useState("");
+import { useParams } from "react-router-dom";
 
-  async function sendMessage(event) {
+export default function Chat() {
+  const [messages, setMessages] = useState([]);
+  const [message, setMessage] = useState("");
+  const [btnSend, setBtnSend] = useState("");
+  const params = useParams();
+
+  function sendMessage(event) {
     event.preventDefault();
+    setMessages([...messages, message]);
+    setMessage("")
   }
 
   return (
-    <body>
       <section className="sessao">
         <div className="title-name">
           <div className="user"></div>
@@ -35,14 +40,14 @@ export default function Chat() {
             <div className="message-item-user">
               <div className="message-chat">
                 {" "}
-                <strong>Você diz:</strong>{" "}
+                <strong>{params.name} diz:</strong>{" "}
               </div>
               <div className="message-user"> Bla, bla bla </div>
             </div>
             <div className="message-item-user">
               <div className="message-chat">
                 {" "}
-                <strong>Você diz:</strong>{" "}
+                <strong>{params.name} diz:</strong>{" "}
               </div>
               <div className="message-user">
                 {" "}
@@ -52,18 +57,32 @@ export default function Chat() {
             <div className="message-item-user">
               <div className="message-chat">
                 {" "}
-                <strong>Você diz:</strong>{" "}
+                <strong>{params.name} diz:</strong>{" "}
               </div>
               <div className="message-user">
                 {" "}
                 Conversa de louco cara, ta maluco...{" "}
               </div>
             </div>
+            {messages.map((message, index) => {
+              return (
+                <div key={index} className="message-item-user">
+                  <div className="message-chat">
+                    {" "}
+                    <strong>{params.name} diz:</strong>{" "}
+                  </div>
+                  <div className="message-user"> {message} </div>
+                </div>
+              );
+            })}
+
           </div>
           {/* MARCACAO DO CAMPO FORM NO FOOTER */}
-          <form className="sendMessage">
+          <form className="sendMessage" onSubmit={sendMessage}>
             <fieldset className="control">
               <input
+                onChange={(e) => setMessage(e.target.value)}
+                value={message}
                 type="text"
                 name="message"
                 id="message"
@@ -74,6 +93,5 @@ export default function Chat() {
           </form>
         </main>
       </section>
-    </body>
   );
 }
