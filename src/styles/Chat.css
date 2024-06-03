@@ -1,7 +1,7 @@
 
 .sessao{
     margin: 0 auto;
-    border: 2px solid purple;
+    border: 1px solid purple;
     border-radius: 20px;
     background-color: black;
     max-width: 400px;
@@ -30,7 +30,7 @@ div.user{
     border: 1px solid black;
     border-radius: 50px ;
     cursor: pointer;
-    background-image: url(../../public/pessoa.jpg);
+    background-image: url(../../public/user.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: 30px;
@@ -39,7 +39,7 @@ div.user{
 }
 /* CONFIG AREA DO CHAT */
 .chat-area{
-    border-radius: 8px ;
+    border-radius: 10px ;
     padding: 4px; 
     max-height: 400px;
     overflow: auto; 
@@ -70,7 +70,6 @@ div.user{
     flex-direction: column;
     align-items: flex-start;
 }
-
 
 .message-item-user{
     margin: 8px;
@@ -104,7 +103,6 @@ div.message-item-user .message-user{
     background-color: rgba(128, 0, 128, 0.733);
 }
 
-
 /* CONFIG CAMPO FORM */
 fieldset.control{
     border: none;
@@ -127,7 +125,7 @@ input#message{
   border: 1px solid black;
   border-radius: 20px;  
   width: 310px;
-  height: 20px;
+  height: 40px;
   padding: 4px;
   margin-top: 6px;
   background-color: rgba(28,39,45,255);
@@ -138,22 +136,22 @@ input#message{
 button.send{
     border: 1px solid black;
     border-radius: 50px ;
-    padding: 4px;
+    padding: 10px;
     margin-top: 4px;
     cursor: pointer;
-    width: 32px;
-    height: 32px;
-    background-color: purple;
-    background-image: url(../../public/mic.png);
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    background-image: url(../../public/sendmessage.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center; 
+    background-position: center; 
     transition: background-color 0.2s, transform 0.2s;
 }
 
 button.send:hover{
     transform: scale(1.10);
-    background-image: url(../../public/mic.png);
+    background-image: url(../../public/microphone.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;   
